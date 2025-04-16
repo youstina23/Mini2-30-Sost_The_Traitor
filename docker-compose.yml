@@ -7,10 +7,6 @@ services:
       dockerfile: Dockerfile
     environment:
       APP_NAME: "MiniProj2"
-#      FIRST_NAME: "Youstina"
-#      LAST_NAME: "Nabil"
-#      APP_ID: "52_0659"
-#      APP_PORT: "659"
       SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/sostthetraitor
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: mado
@@ -52,3 +48,4 @@ services:
         ME_CONFIG_MONGODB_ADMINPASSWORD: example
         ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
         ME_CONFIG_BASICAUTH: false
+
