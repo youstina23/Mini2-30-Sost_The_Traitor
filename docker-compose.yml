@@ -17,11 +17,11 @@ services:
     ports:
       - "8080:8080"
     depends_on:
-      - postgres
+      - db
       - mongo
     restart: always
 
-  postgres:
+  db:
     image: postgres
     container_name: db_container
     environment:
