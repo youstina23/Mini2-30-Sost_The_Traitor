@@ -2,10 +2,12 @@ package com.example.MiniProj2.models;
 
 import com.example.MiniProj2.models.Trip;
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "captain")
+@Table(name = "captains")
 public class Captain {
 
     @Id
@@ -37,6 +39,14 @@ public class Captain {
         this.avgRatingScore = avgRatingScore;
         this.trips = trips;
     }
+
+    public Captain(String name, String licenseNumber, Double avgRatingScore) {
+        this.name = name;
+        this.licenseNumber = licenseNumber;
+        this.avgRatingScore = avgRatingScore;
+        this.trips = new ArrayList<>(); // or null, if you prefer
+    }
+
 
     // 3. Empty constructor
     public Captain() {}
