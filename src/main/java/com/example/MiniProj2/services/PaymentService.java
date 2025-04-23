@@ -46,12 +46,12 @@ public class PaymentService {
         return paymentRepository.save(existingPayment);
     }
 
-    // 5. Delete Payment
     public void deletePayment(Long id) {
-        if (!paymentRepository.existsById(id)) {
-            throw new NoSuchElementException("Payment with ID " + id + " not found");
-        }
-        paymentRepository.deleteById(id);
+        paymentRepository.deleteById(id); // Just delete, don't check again
+    }
+
+    public boolean existsById(Long id) {
+        return paymentRepository.existsById(id);
     }
 
     // 6. Find Payments By Trip ID

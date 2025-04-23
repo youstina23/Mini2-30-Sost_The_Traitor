@@ -43,12 +43,13 @@ public class TripService {
         return tripRepository.save(existingTrip);
     }
 
+    public boolean existsById(Long id) {
+        return tripRepository.existsById(id);
+    }
     public void deleteTrip(Long id) {
-        if (!tripRepository.existsById(id)) {
-            throw new NoSuchElementException("Trip with ID " + id + " not found");
-        }
         tripRepository.deleteById(id);
     }
+
 
     public List<Trip> findTripsWithinDateRange(LocalDateTime startDate, LocalDateTime endDate) {
         return tripRepository.findByTripDateBetween(startDate, endDate);

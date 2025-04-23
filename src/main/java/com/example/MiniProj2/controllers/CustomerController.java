@@ -46,9 +46,13 @@ public class CustomerController {
 
     @DeleteMapping("/delete/{id}")
     public String deleteCustomer(@PathVariable Long id) {
+        if (!customerService.existsById(id)) {
+            return "Customer not found with ID " + id;
+        }
         customerService.deleteCustomer(id);
         return "Customer with ID " + id + " has been deleted.";
     }
+
 
 
     @GetMapping("/findByEmailDomain")

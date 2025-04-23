@@ -41,9 +41,13 @@ public class TripController {
 
     @DeleteMapping("/delete/{id}")
     public String deleteTrip(@PathVariable Long id) {
+        if (!tripService.existsById(id)) {
+            return "Trip not found with ID " + id;
+        }
         tripService.deleteTrip(id);
         return "Trip with ID " + id + " has been deleted.";
     }
+
 
     @GetMapping("/findByDateRange")
     public List<Trip> findTripsWithinDateRange(@RequestParam LocalDateTime startDate, @RequestParam LocalDateTime endDate) {
