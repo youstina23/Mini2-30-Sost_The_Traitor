@@ -34,7 +34,6 @@ public class CaptainService {
     }
 
     public Captain getCaptainByLicenseNumber(String licenseNumber) {
-        return captainRepository.findByLicenseNumber(licenseNumber)
-                .orElseThrow(() -> new NoSuchElementException("Captain with license number " + licenseNumber + " not found"));
+        return captainRepository.findByLicenseNumber(licenseNumber).orElse(null);
     }
 }

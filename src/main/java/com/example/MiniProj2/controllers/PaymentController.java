@@ -44,12 +44,15 @@ public class PaymentController {
         return paymentService.updatePayment(id, payment);
     }
 
-    // 5. Delete Payment
     @DeleteMapping("/delete/{id}")
     public String deletePayment(@PathVariable Long id) {
+        if (!paymentService.existsById(id)) {
+            return "Payment not found with ID " + id;
+        }
         paymentService.deletePayment(id);
         return "Payment with ID " + id + " has been deleted.";
     }
+
 
     // 6. Find Payments By Trip ID
     @GetMapping("/findByTripId")

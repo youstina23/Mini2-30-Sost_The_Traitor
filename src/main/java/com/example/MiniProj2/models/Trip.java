@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import com.example.MiniProj2.models.Captain;
 
 @Entity
-@Table(name = "trip")
+@Table(name = "trips")
 public class Trip {
 
     @Id
@@ -47,6 +47,17 @@ public class Trip {
         this.customer = customer;
         this.captain = captain;
     }
+
+
+    public Trip(LocalDateTime tripDate, String origin, String destination, Double tripCost) {
+        this.tripDate = tripDate;
+        this.origin = origin;
+        this.destination = destination;
+        this.tripCost = tripCost;
+        this.customer = null;
+        this.captain = null;
+    }
+
 
     // 3. Empty constructor
     public Trip() {}

@@ -46,10 +46,11 @@ public class CustomerService {
 
 
     public void deleteCustomer(Long id) {
-        if (!customerRepository.existsById(id)) {
-            throw new IllegalArgumentException("Customer not found with id: " + id);
-        }
-        customerRepository.deleteById(id);
+        customerRepository.deleteById(id); // No need to check exists again
+    }
+
+    public boolean existsById(Long id) {
+        return customerRepository.existsById(id);
     }
 
 

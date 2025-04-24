@@ -1,11 +1,13 @@
 package com.example.MiniProj2.models;
 
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
 import java.util.List;
 import com.example.MiniProj2.models.Trip;
 
 @Entity
-@Table(name = "customer")
+@Table(name = "customers")
 public class Customer {
 
     @Id
@@ -36,6 +38,15 @@ public class Customer {
         this.phoneNumber = phoneNumber;
         this.trips = trips;
     }
+
+
+    public Customer(String name, String email, String phoneNumber) {
+        this.name = name;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.trips = new ArrayList<>(); // optional: initialize to empty list
+    }
+
 
 
     public Customer() {}

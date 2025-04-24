@@ -5,7 +5,7 @@ package com.example.MiniProj2.models;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "payment")
+@Table(name = "payments")
 public class Payment {
 
     @Id
@@ -38,6 +38,14 @@ public class Payment {
         this.paymentStatus = paymentStatus;
         this.trip = trip;
     }
+
+    public Payment(Double amount, String paymentMethod, Boolean paymentStatus) {
+        this.amount = amount;
+        this.paymentMethod = paymentMethod;
+        this.paymentStatus = paymentStatus;
+        this.trip = null; // or use a dummy trip if needed
+    }
+
 
 
     public Payment() {}
